@@ -39,13 +39,19 @@ public class Cadastrotela2sessao extends HttpServlet {
 		PrintWriter resposta = response.getWriter();
 		
 		resposta.write("<html><body>");
+		resposta.write("<head>");
+		resposta.write("<title>Confirmação Registro</title>");
+		resposta.write("<head>");
 		
 		HttpSession sessao = request.getSession(false);
+		
 		if(sessao == null || sessao.getAttribute(Login.USUARIO) == null) {
 			resposta.write("<a href=\"login.jsp\">Para acessar, faça seu Login!</a><br>");
+			
 		} else {
 			resposta.write("<h3>Registro realizado com sucesso!</h3>");
 			resposta.write("<b>Seus dados Pessoais:</b><br>");
+			
 			DadosPessoais dados = (DadosPessoais) sessao.getAttribute("dadosPessoais");
 			
 			if (dados == null) {
@@ -76,9 +82,9 @@ public class Cadastrotela2sessao extends HttpServlet {
 				resposta.write(request.getParameter("cepEmpresa"));
 				resposta.write("<br>");
 				resposta.write(request.getParameter("estadoEmpresa"));
+				resposta.write("</body></html>");
 			}
 		}
-		resposta.write("</html></body>");
 	}
 
 }

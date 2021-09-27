@@ -50,6 +50,7 @@ public class Cadastrotela1sessao extends HttpServlet {
 			resposta.write("<a href=\"login.jsp\">Para acessar, faça seu Login!</a><br>");
 		} else {
 			DadosPessoais dados = new DadosPessoais();
+			
 			dados.setNome(request.getParameter("nome"));
 			dados.setSobrenome(request.getParameter("sobrenome"));
 			dados.setRua(request.getParameter("rua"));

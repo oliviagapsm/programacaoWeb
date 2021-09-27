@@ -57,7 +57,7 @@ public class Menu extends HttpServlet {
 		
 		//Novas funcionalidade poderão ser incluídas aqui
 		}
-		
+		resposta.write("</body></html>");
 	}
 
 }
