@@ -49,7 +49,7 @@ public class Cadastrotela2sessao extends HttpServlet {
 			DadosPessoais dados = (DadosPessoais) sessao.getAttribute("dadosPessoais");
 			
 			if (dados == null) {
-				resposta.write("<a href=\\\"login.jsp\\\">Dados incompletos, iniciar o sistema novamente.</a><br>");
+				resposta.write("<a href=\"login.jsp\">Dados incompletos, iniciar o sistema novamente.</a><br>");
 			} else {
 				resposta.write(dados.getNome() + " " + dados.getSobrenome());
 				resposta.write("<br>");
