@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Aula de Javascript</title>
+
+<script type="text/Javascript">
+ function adicionarItem() {
+	 var campoTexto = document.getElementById("item");
+	 var campoItens = document.getElementById("itens");
+	 
+	 var opcaoNova = document.createElement('option');
+	 
+	 opcaoNova.text = campoTexto.value;
+	 
+	 campoItens.add(opcaoNova);
+ }
+ 
+ function adicionarTexto() {
+	 var campoAreaTexto = document.getElementById("areaTexto");
+	 var campoItens = document.getElementById("itens");
+	 
+	 var posicaoSelecionada = campoItens.selectedIndex;
+	 
+	 var novoTexto = campoItens[posicaoSelecionada].text;
+	 
+	campoAreaTexto.value = campoAreaTexto.value + "\n" + novoTexto;
+ }
+ 
+</script>
+<script type="text/javascript">
+function inserirRegistro() {
+	var tabela = document.getElementById("registros");
+	var nome = document.getElementById("inputNome").value;
+	var cpf = document.getElementById("inputCpf").value;
+	
+	cpf = replaceCPF(cpf);
+	
+	// Quantidade de linhas
+	var linhasTotais = tabela.rows.length;
+	
+	// Adicionar linha
+	var novaLinha = tabela.insertRow(linhasTotais);
+	
+	// Adicionar células na linha
+	var novaCelulaNome = novaLinha.insertCell(0);
+	var novaCelulaCpf = novaLinha.insertCell(1);
+	// Preencher as células
+	novaCelulaNome.innerHTML = nome;
+	novaCelulaCpf.innerHTML = cpf;
+}
+function replaceCPF(cpf){
+	  return cpf.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+	}
+</script>
+</head>
+<body>
+<form>
+<h2>Manipulação de objetos DOM</h2>
+	Digite algo:<input id="item" type="text">
+	<input type="button" value="Adicionar item" onclick="adicionarItem()">
+	<br/>
+	<br/>
+	<br/>
+	<select id="itens" onchange="adicionarTexto()">
+	</select>
+	<br/>
+	<br/>
+	<textarea id="areaTexto" disabled="disabled" rows="20" cols="30"></textarea>
+</form>
+<br/>
+<br/>
+<br/>
+Nome: <input id="inputNome" type="text"><br/>
+CPF: <input id="inputCpf" type="text"><br/>
+	
+<input type="button" value="Inserir registro" onclick="inserirRegistro()"><br/><br/><br/>
+<table id="registros" border="1">
+	<tr>
+		<th>Nome</th>
+		<th>CPF</th>
+	</tr>
+	<tr>
+		<td>Fulano</td>
+		<td>021.202.554-84</td>
+	</tr>
+</table>
+
+
+</body>
+</html>
