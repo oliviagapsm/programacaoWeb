@@ -5,6 +5,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Cadastro disciplina</title>
+<jsp:include page="header.jsp">
+	<jsp:param value="Professor" name="usuario"/>
+</jsp:include>
 </head>
 <body>
 <form action="Controlador" method="post">
@@ -21,8 +24,9 @@ if(isCadastrado){
 %>
 <h3> Disciplina cadastrado com sucesso!</h3>
 <%
-}
+} 
 %>
+
 <br><a href="menuAvaliacao.jsp">Menu</a>
 </body>
 </html>

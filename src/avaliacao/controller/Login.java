@@ -54,7 +54,7 @@ public class Login extends HttpServlet {
 	}
 	
 	private boolean autentica(String nomeUsuario, String senhaUsuario) {
-		if(nomeUsuario != null && nomeUsuario.equals("professor") &&  senhaUsuario != null && senhaUsuario.equals("123")) {
+		if(nomeUsuario != null && nomeUsuario.equals("professor") &&  senhaUsuario != null && senhaUsuario.equals("Progweb2021")) {
 			return true;
 		}
 		

@@ -5,9 +5,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Menu</title>
+<jsp:include page="header.jsp">
+	<jsp:param value="Professor" name="usuario"/>
+</jsp:include>
 </head>
 <body>
 1. <a href="Controlador?acao=cadastrar">Cadastrar disciplina e nota</a><br>
 2. <a href="Controlador?acao=listar">Consultar disciplinas e notas</a><br>
 </body>
 </html>
+
+

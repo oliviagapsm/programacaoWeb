@@ -1,11 +1,14 @@
 package avaliacao.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class MenuAvaliacao
@@ -33,7 +36,19 @@ public class MenuAvaliacao extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("menuAvaliacao.jsp").forward(request, response);
+		//Autenticação
+		PrintWriter resposta = response.getWriter();
+		
+		
+		HttpSession sessao = request.getSession(false);
+
+		
+		if(sessao == null || sessao.getAttribute(Login.USUARIO) == null) {
+			resposta.write("<a href=\"loginAvaliacao.jsp\">Para acessar, faça seu Login!</a><br>");
+		} else {
+			//Redireciona para as opções do menu
+			request.getRequestDispatcher("menuAvaliacao.jsp").forward(request, response);
+		}
 	}
 
 }
